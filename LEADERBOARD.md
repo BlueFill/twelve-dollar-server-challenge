@@ -34,10 +34,10 @@ CPU % and µs/request are the app's own cgroup over the scored hold (µs = app C
 | 5 | c-iouring-meros | #137 | C (io_uring) | **235,000** | 22,602 | 294 | 397 | 0.00 | 80 | 32 | 1,537 | 2026-10-28 |
 | 6 | cpp-eastl-io_uring-pgo-hendy643 | #32 | C++ (io_uring, EASTL) | **210,000** | 20,436 | 322 | 672 | 0.00 | 73 | 33 | 633 | 2026-10-26 |
 | 7 | go-epoll-MegaPanchamZ | #144 | Go (raw epoll) | **185,000** | 18,086 | 288 | 479 | 0.00 | 99 | 51 | 1,286 | 2026-10-28 |
-| 8 | c-iouring-raoz | #26 | C (io_uring) | **172,000** | 16,875 | 98 | 125 | 0.00 | 69 | 38 | 419 | 2026-10-27 |
-| 9 | asm-nasm-melroy89 | #86 | x86-64 asm (io_uring) | **171,000** | 16,777 | 87 | 142 | 0.00 | 78 | 43 | 358 | 2026-10-21 |
-| 10 | c-iouring-ssmurfgg04-gif | #112 | C (io_uring) | **150,000** | 14,611 | 385 | 524 | 0.00 | 78 | 50 | 413 | 2026-10-21 |
-| 11 | go-epoll-kaikegm | #151 | Go (raw epoll, cgo SQLite, PGO) | **145,000** | 14,088 | 29 | 116 | 0.21 | 96 | 64 | 909 | 2026-10-28 |
+| 8 | go-epoll-kaikegm | #151 | Go (raw epoll, cgo SQLite) | **175,000** | 16,616 | 37 | 253 | 0.61 | 98 | 55 | 749 | 2026-10-28 |
+| 9 | c-iouring-raoz | #26 | C (io_uring) | **172,000** | 16,875 | 98 | 125 | 0.00 | 69 | 38 | 419 | 2026-10-27 |
+| 10 | asm-nasm-melroy89 | #86 | x86-64 asm (io_uring) | **171,000** | 16,777 | 87 | 142 | 0.00 | 78 | 43 | 358 | 2026-10-21 |
+| 11 | c-iouring-ssmurfgg04-gif | #112 | C (io_uring) | **150,000** | 14,611 | 385 | 524 | 0.00 | 78 | 50 | 413 | 2026-10-21 |
 | 12 | c-ammarserver-AmmarkoV | #54 | C (AmmarServer, io_uring) | **135,000** | 13,239 | 95 | 470 | 0.00 | 76 | 53 | 320 | 2026-10-27 |
 | 12 | go-epoll-brady1408 | #111 | Go (raw epoll, cgo SQLite) | **135,000** | 13,169 | 366 | 962 | 0.00 | 100 | 70 | 296 | 2026-10-27 |
 | 14 | odin-odinhttp-wanderingaura | #139 | Odin (odin-http) | **130,000** | 12,644 | 429 | 924 | 0.00 | 82 | 60 | 624 | 2026-10-28 |
@@ -250,8 +250,6 @@ committed in this repo.
 - **go-lowlevel #91 builds with committed PGO profiles** (`profiles/go.pprof`, `profiles/sqlite.profraw`, on by default)
   that the author trained on their own load runs; the author asked for organizer review (rule 7/10 question: profile
   data tuned to the benchmark, and a non-source input to the build). Scored as submitted (125k); held open for Arjay.
-  go-epoll-kaikegm #151 does the same: `go build -pgo=auto` with a committed `default.pgo` recorded from the author's own
-  load runs (its `PGO_RECORD` hook). Scored as submitted (145k); held open for Arjay.
 - **lean-derive #153 reads SQLite's B-tree layer directly**: it compiles into the SQLite amalgamation and serves
   `GET /feed` and `GET /posts/:id` with B-tree cursors (`sqlite3BtreeTableMoveto`, inside SQLite read transactions,
   skipping the SQL bytecode engine; writes use SQL). Its feed plan also relies on an invariant (dense rowids,
