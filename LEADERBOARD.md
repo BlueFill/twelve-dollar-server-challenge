@@ -106,11 +106,11 @@ CPU % and µs/request are the app's own cgroup over the scored hold (µs = app C
 | 77 | haskell-warp-staticfx | #104 | Haskell (Warp) | **55,000** | 5,411 | 2.5 | 198 | 0.00 | 62 | 107 | 1,587 | 2026-10-21 |
 | 77 | go-nethttp-fi5HiE | #99 | Go (net/http) | **55,000** | 5,382 | 425 | 679 | 0.00 | 90 | 156 | 1,465 | 2026-10-21 |
 | 79 | go-nethttp-tbsvttr | #18 | Go (net/http) | **53,000** | 5,165 | 374 | 659 | 0.00 | 93 | 168 | 624 | 2026-10-26 |
-| 80 | typescript-fastify-melroy89 | #51 | TypeScript (Fastify, Node) | **52,000** | 5,089 | 359 | 862 | 0.00 | 81 | 148 | 1,007 | 2026-10-26 |
-| 81 | csharp-aspnetcore-andrexx | #20 | C# (ASP.NET Core) | **49,000** | 4,815 | 84 | 234 | 0.00 | 88 | 170 | 846 | 2026-10-26 |
-| 82 | python-fastapi-tejasnafde | #10 | Python (FastAPI) | **48,000** | 4,701 | 303 | 465 | 0.00 | 89 | 176 | 583 | 2026-10-21 |
-| 82 | swift-hummingbird-denizak ᵖ | #43 | Swift (Hummingbird) | **48,000** | 4,700 | 210 | 300 | 0.00 | 97 | 191 | 1,269 | 2026-10-21 |
-| 82 | python-pyrustapi-rajboopathiking | #147 | Python (PyRustAPI, Rust/Hyper core) | **48,000** | 4,717 | 72 | 198 | 0.00 | 82 | 162 | 1,133 | 2026-10-28 |
+| 79 | python-pyrustapi-rajboopathiking | #147 | Python (PyRustAPI, Rust/Hyper core) | **53,000** | 5,185 | 294 | 429 | 0.00 | 90 | 162 | 1,232 | 2026-10-28 |
+| 81 | typescript-fastify-melroy89 | #51 | TypeScript (Fastify, Node) | **52,000** | 5,089 | 359 | 862 | 0.00 | 81 | 148 | 1,007 | 2026-10-26 |
+| 82 | csharp-aspnetcore-andrexx | #20 | C# (ASP.NET Core) | **49,000** | 4,815 | 84 | 234 | 0.00 | 88 | 170 | 846 | 2026-10-26 |
+| 83 | python-fastapi-tejasnafde | #10 | Python (FastAPI) | **48,000** | 4,701 | 303 | 465 | 0.00 | 89 | 176 | 583 | 2026-10-21 |
+| 83 | swift-hummingbird-denizak ᵖ | #43 | Swift (Hummingbird) | **48,000** | 4,700 | 210 | 300 | 0.00 | 97 | 191 | 1,269 | 2026-10-21 |
 | 85 | python-granian-tbsvttr | #13 | Python (Granian) | **45,000** | 4,400 | 202 | 812 | 0.00 | 93 | 197 | 709 | 2026-10-26 |
 | 85 | go-nethttp-NaveedZahoorKhan | #129 | Go (net/http, cgo SQLite) | **45,000** ᵏ | 4,429 | 33 | 303 | 0.00 | 67 | 141 | 1,507 | 2026-10-28 |
 | 87 | node-fastify-gmr458 | #61 | TypeScript (Fastify, Node) | **44,000** | 4,285 | 489 | 915 | 0.00 | 86 | 187 | 812 | 2026-10-27 |
@@ -238,7 +238,7 @@ committed in this repo.
 - **Tokens without `exp` accepted** (SPEC requires rejecting them): java-nio #88, quarkus #67 (SmallRye
   grace), kotlin #83, scala #107, node-uws #102, dart #46, go-champ3oy #76, pypy #84 (deliberately), csharp #74, bash #89,
   go-gnet #38, kotlin-ktor #36, python-fastapi-granian #41, go-stdlib #44, kotlin-ktor-C-Hatton #45, typescript-fastify #51, go-epoll-damianoneill #52,
-  kotlin-ktor-graalvm #53, go-fasthttp #56, java-netty #57, bun-elysia #59, node-fastify #61, java-netty-lfeagan #63, c-iouring-27bhd #68, node-net #78, pypy-twisted #79, go-nethttp-mattn #100, java-raw #101, python-stdlib #118, java-springboot-reactor #138, trux-http #145, python-pyrustapi #147 (all held open until fixed). cpp-eastl #32 fixed it in `4d5e225`, c-iouring-meros #137 in `b2a5207` and asm-epoll #117 in its follow-up #152 (`ad7a72c`) (re-scored and merged).
+  kotlin-ktor-graalvm #53, go-fasthttp #56, java-netty #57, bun-elysia #59, node-fastify #61, java-netty-lfeagan #63, c-iouring-27bhd #68, node-net #78, pypy-twisted #79, go-nethttp-mattn #100, java-raw #101, python-stdlib #118, java-springboot-reactor #138, trux-http #145 (all held open until fixed). cpp-eastl #32 fixed it in `4d5e225`, c-iouring-meros #137 in `b2a5207`, python-pyrustapi #147 in `82abaab` and asm-epoll #117 in its follow-up #152 (`ad7a72c`) (re-scored and merged).
 - **Kotlin Ktor #36 (and #53, based on it) commit `gradle/wrapper/gradle-wrapper.jar`**. Arjay ruled (2026-10-26) that
   the standard Gradle wrapper jar is fine and not a prebuilt binary under rule 10. Kotlin Ktor #36 also returned a few HTTP 500s on writes under load (1–5 per probe,
   0 in the scored hold); its StatusPages handler doesn't log the exception. kotlin-springboot #66 commits the same
@@ -251,6 +251,9 @@ committed in this repo.
   data tuned to the benchmark, and a non-source input to the build). Scored as submitted (125k); held open for Arjay.
   go-epoll-kaikegm #151 does the same: `go build -pgo=auto` with a committed `default.pgo` recorded from the author's own
   load runs (its `PGO_RECORD` hook). Scored as submitted (145k); held open for Arjay.
+- **python-pyrustapi #147 serves its reads from the `pyrustapi` package's native SQL tier** (`sql=` route options),
+  installed as a prebuilt PyPI wheel; the author says it's their own open-source framework and builds from source
+  with `--no-binary` (rule 10 question). Scored as submitted (53k); held open for Arjay.
 - **odin-odinhttp #139 drops the box's page cache at startup**: `pagecache.odin` walks /usr, /var, /etc (and its own
   folder) and calls `posix_fadvise(DONTNEED)` on each file (rule 11 question: it acts on files outside its folder).
   Scored as submitted (130k); held open for Arjay.
