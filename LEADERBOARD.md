@@ -136,7 +136,10 @@ CPU % and µs/request are the app's own cgroup over the scored hold (µs = app C
 ports). It passed 240,000 at 79 % CPU, so it was re-searched with 3 extra IPv4s on the box and a 5th load generator
 (cap ~1.2M): 300,000 failed on latency (p99 888 ms 2-min, CPU 89 %), 293,000/278,000 failed the 5-minute hold on p99,
 **264,000 passed**. 360k/480k probes got the app OOM-killed (2 GB box). The 240,000 run on the original setup is consistent
-(23,166 req/s, 31 µs/req).
+(23,166 req/s, 31 µs/req). Its follow-up **#141** (`b1efee9`, background WAL checkpoints; held, not merged: it
+conflicts with the merged #82 folder) scored **230,000** on the standard 4-source-IP setup (22,384 req/s, p95 14 / p99
+62 ms, 0 err, 91 % CPU, 37 µs/req, 931 MB, 2026-10-28) and is CPU-bound, not source-port-bound: 240,000 failed at 95 % CPU
+(p99 1.5 s). The row above stays on #82's merged code until #141 is rebased and merged.
 
 ᶠ **The 65,535 file-descriptor limit, not speed.** These twenty serve 65,535 keep-alive users and the rest wait in the
 listen queue until mload's 60 s timeout. Each scored run shows exactly ~21,900 timeouts = 0.93 % of requests, just under the
